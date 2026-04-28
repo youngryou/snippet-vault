@@ -73,10 +73,30 @@ The scope should specify the place or feature affected by the change. For Snippe
 ```text
 snippet-vault/
 ├── docs/               # Project documentation and guidelines
-├── src/
+│   ├── GUIDELINES.md   # Coding guidelines
+│   └── note.md         # Private Note
+│
+├── node_modules/       # Do not touch
+│
+├── public/             # For global assets (icons, etc.)
+│
+├── src/                # Source
 │   ├── data/           # Data objects and snippet collections
 │   ├── styles/         # CSS stylesheets
+│   │   └── main.css    # Moved from src/style.css
 │   └── main.js         # Main application logic
+│
+├── .gitignore          # Ignore files and folders
+│
+├── .prettierrc         # Prettier configuration
+│
 ├── index.html          # Entry point
-├── vite.config.js      # Vite configuration
-└── package.json        # Dependencies and scripts
+│
+├── LICENSE             # Licensing information
+│
+├── package-lock.json   # Do not touch
+├── package.json        # Do not touch (Dependencies and scripts)
+│
+├── README.md           # Project description
+│
+└── vite.config.js      # Vite configuration
