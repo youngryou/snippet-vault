@@ -11,6 +11,7 @@ dist-ssr/
 docs/note.md
 docs/note*.md
 docs/personal/
+.local-*
 
 # Logs
 logs
