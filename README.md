@@ -5,16 +5,18 @@ SnippetVault is a personal, interactive code library designed to store, manage, 
 ## Key Features
 
 ### 1. Categorised Library
-- Organises snippets into **HTML, CSS, and JavaScript** categories.
+- Organises snippets into **HTML, CSS, JavaScript, and Setup/Config** categories.
 - Data-driven rendering allows easy addition of new snippets via `snippets.js`.
+- Separate handling for UI components (with preview) and Config snippets (plain text).
 
 ### 2. Live Sandbox Preview
 - Utilises `<iframe>` to render code in an isolated environment.
 - Prevents CSS/JS conflicts between the snippet and the main application.
+- Supports real-time visual feedback for UI-based snippets.
 
 ### 3. Interactive Code Editing
 - Real-time synchronisation: Changes in the code editor are instantly reflected in the preview.
-- Dynamic adjustments for values like padding, margin, or colours.
+- Dynamic adjustments: Fine-tune values like padding, margin, or colours before finalising the code.
 
 ### 4. Smart Copy
 - One-click "Copy to Clipboard" functionality for refined code.
@@ -24,14 +26,16 @@ SnippetVault is a personal, interactive code library designed to store, manage, 
 - **HTML5**: Semantic structure and layout.
 - **CSS3**: Responsive design and custom styling for the dashboard.
 - **Vanilla JavaScript**: DOM manipulation, data handling, and iframe communication.
+- **Vite**: Modern build tool for fast development and optimised deployment.
 
 ## MVP (Minimum Viable Product) Goals
-- [ ] Render snippet cards from a JSON-like data structure.
-- [ ] Display live preview of HTML/CSS within an iframe.
-- [ ] Implement a basic "Copy to Clipboard" button.
-- [ ] Functional sidebar for category filtering.
+- [ ] Render snippet cards from a JSON-like data structure (`snippets.js`).
+- [ ] Display live preview of HTML/CSS within an iframe for UI snippets.
+- [ ] Implement a basic "Copy to Clipboard" button for instant use.
+- [ ] Functional sidebar for category filtering (HTML, CSS, JS, Setup).
 
 ## Future Enhancements
-- Persistent storage using LocalStorage.
-- Advanced UI controls for CSS properties (sliders, colour pickers).
+- Persistent storage using LocalStorage to save temporary edits.
+- Advanced UI controls for CSS properties (sliders for numerical values, colour pickers).
+- Keyboard support: Increase/decrease numerical values using arrow keys within the editor.
 - Search functionality to find specific snippets instantly.
