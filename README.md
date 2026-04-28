@@ -2,6 +2,11 @@
 
 SnippetVault is a personal, interactive code library designed to store, manage, and test reusable code snippets. Unlike generic documentation sites, this tool focuses on a curated collection of frequently used logic and styles for myself, providing a live sandbox environment for real-time adjustments and instant copying.
 
+## Project Information
+- **Internal Name:** SnippetVault
+- **Repository:** https://github.com/youngryou/snippet-vault.git
+- **Author:** Young Ryou
+
 ## Key Features
 
 ### 1. Categorised Library
