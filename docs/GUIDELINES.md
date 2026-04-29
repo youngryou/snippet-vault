@@ -25,6 +25,7 @@ The scope should specify the place or feature affected by the change. For Snippe
 - **ui**: General user interface changes (layout, navigation).
 - **sidebar**: Changes specific to the category menu.
 - **preview**: Logic or styles related to the live iframe sandbox.
+- **core**: Fundamental application logic and entry points (e.g., `main.js`).
 - **data**: Updates to the `snippets.js` file (adding/removing snippets).
 - **config**: Changes to `vite.config.js` or environment settings.
 - **css**: Global style changes in `style.css`.
