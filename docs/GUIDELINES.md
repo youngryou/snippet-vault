@@ -82,6 +82,7 @@ snippet-vault/
 │
 ├── src/                # Source
 │   ├── data/           # Data objects and snippet collections
+│   │   └── snippets.js # Snippet data
 │   ├── styles/         # CSS stylesheets
 │   │   └── main.css    # Moved from src/style.css
 │   └── main.js         # Main application logic
