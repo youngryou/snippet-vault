@@ -49,7 +49,7 @@ The scope should specify the place or feature affected by the change. For Snippe
 ## 2. Coding Standards
 
 ### General Principles
-- **Language**: Use **UK/NZ/AU English** for all naming and documentation (e.g., `colour`, `initialise`, `organisation`).
+- **Language**: Use **UK/NZ/AU English** for all naming and documentation (e.g., `initialise`, `organisation`, etc).
 - **Formatting**: All files must be formatted using **Prettier** as defined in `.prettierrc`.
 - **Naming**: Use `camelCase` for variables and functions, and `PascalCase` for classes.
 

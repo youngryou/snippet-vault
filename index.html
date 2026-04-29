@@ -30,8 +30,33 @@
   </head>
 
   <body>
-    <h1>Snippet Vault - Personal Dev Library</h1>
-  </body>
+    <!-- Root container for the application layout -->
+    <div id="app">
+      <!-- Navigation sidebar -->
+      <aside>
+        <!-- Logo -->
+        <h1 class="main-logo">Snippet Vault</h1>
 
-  <footer></footer>
+        <!-- Menu -->
+        <nav id="sidebar-menu"></nav>
+      </aside>
+    </div>
+
+    <!-- Main display area -->
+    <main id="main-content">
+      <!-- Content Header -->
+      <header>
+        <h2 id="current-category">All Snippets</h2>
+      </header>
+
+      <!-- Snippet Container -->
+      <section id="snippet-container"></section>
+    </main>
+
+    <!-- Footer -->
+    <footer></footer>
+
+    <!-- Scripts -->
+    <script type="module" src="./src/main.js"></script>
+  </body>
 </html>
