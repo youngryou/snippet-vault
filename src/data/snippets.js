@@ -10,7 +10,7 @@
  */
 
 // Export and define array 'snippetData' containing snippet objects
-const snippetData = [
+export const snippetData = [
   {
     // ID for the snippet
     id: 1,
