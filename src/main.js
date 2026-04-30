@@ -14,6 +14,7 @@ import { snippetData } from './data/snippets.js';
 
 // Get DOM elements
 const sidebarMenu = document.getElementById('sidebar-menu');
+const snippetContainer = document.getElementById('snippet-container');
 
 /**
  * Function renderSidebar() to build the sidebar navigation
@@ -43,3 +44,44 @@ function renderSidebar() {
 
 // Execute functions for testing
 renderSidebar();
+
+/**
+ * Function renderSnippets() to filter and render snippet cards
+ */
+// Set initial category as "All Snippets"
+function renderSnippets(filter = 'All Snippets') {
+  // Clear the current snippet container
+  snippetContainer.innerHTML = '';
+
+  // Filter snippets based on the selected category
+  const filteredSnippets =
+    // If "All Snippets" is selected, use all data
+    filter === 'All Snippets'
+      ? snippetData
+      : // Otherwise, filter by the selected category
+        snippetData.filter((snippet) => snippet.category === filter);
+
+  // Loop through filtered snippet to create snippet card
+  filteredSnippets.forEach((snippet) => {
+    // Create a new article element for the snippet card
+    const snippetCard = document.createElement('article');
+    // Add CSS class for styling
+    snippetCard.classList.add('snippet-card');
+    // Add internal HTML structure for the snippet card
+    snippetCard.innerHTML = `
+      <div class="snippet-header">
+        <span class="category-tag">${snippet.category}</span>
+        <h3>${snippet.title}</h3>
+      </div>
+      <p class="description">${snippet.description}</p>
+      <div class="code-box">
+        <pre><code>${snippet.code}</code></pre>
+      </div>
+    `;
+    // Add the snippet card to the snippet container
+    snippetContainer.appendChild(snippetCard);
+  });
+}
+
+// Execute functions for testing
+renderSnippets();
