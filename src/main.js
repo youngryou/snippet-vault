@@ -82,7 +82,7 @@ function renderSnippets(filter = 'All Snippets') {
       </div>
       <p class="description">${snippet.description}</p>
       <div class="code-box">
-        <pre><code>${snippet.code}</code></pre>
+        <pre><code>${escapeHtml(snippet.code)}</code></pre>
       </div>
     `;
 
@@ -93,3 +93,15 @@ function renderSnippets(filter = 'All Snippets') {
 
 // Execute functions for testing
 renderSnippets();
+
+/**
+ * Function escapeHtml() to convert specific characters into HTML
+ */
+function escapeHtml(text) {
+  // Create a temporary div element
+  const div = document.createElement('div');
+  // Set the text content of the div
+  div.textContent = text;
+  // Return the innerHTML of the div
+  return div.innerHTML;
+}
