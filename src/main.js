@@ -5,7 +5,7 @@
  * @file          src/main.js
  * @project       SnippetVault
  * @author        Young Ryou
- * @lastUpdate    29 April 2026
+ * @lastUpdate    02 May 2026
  * ============================================================
  */
 
@@ -37,6 +37,13 @@ function renderSidebar() {
     menuItem.classList.add('menu-item');
     // Add category name
     menuItem.textContent = category;
+
+    // Add a click event listener to menu item
+    menuItem.addEventListener('click', () => {
+      // Render snippets based on the selected category
+      renderSnippets(category);
+    });
+
     // Add the menu item to the sidebar
     sidebarMenu.appendChild(menuItem);
   });
@@ -78,6 +85,7 @@ function renderSnippets(filter = 'All Snippets') {
         <pre><code>${snippet.code}</code></pre>
       </div>
     `;
+
     // Add the snippet card to the snippet container
     snippetContainer.appendChild(snippetCard);
   });
