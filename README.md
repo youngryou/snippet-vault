@@ -1,6 +1,6 @@
 # SnippetVault
 
-SnippetVault is a personal, interactive code library designed to store, manage, and test reusable code snippets. Unlike generic documentation sites, this tool focuses on a curated collection of frequently used logic and styles for myself, providing a live sandbox environment for real-time adjustments and instant copying.
+SnippetVault is a full-stack, interactive code library designed to store, manage, and test reusable code snippets. It provides a live sandbox environment with real-time CSS manipulation, categorised filtering, and a PostgreSQL database for persistent storage.
 
 ## Project Information
 - **Internal Name:** SnippetVault
@@ -10,9 +10,9 @@ SnippetVault is a personal, interactive code library designed to store, manage, 
 ## Key Features
 
 ### 1. Categorised Library
-- Organises snippets into **HTML, CSS, JavaScript, and Setup/Config** categories.
-- Data-driven rendering allows easy addition of new snippets via `snippets.js`.
-- Separate handling for UI components (with preview) and Config snippets (plain text).
+- Organises snippets into main categories (CSS, JS/TS, DB, Config) and user-defined subcategories.
+- Implements sorting by "Latest", "Most Liked", and filtering by user preferences.
+- Dedicated views for specific languages and configurations.
 
 ### 2. Live Sandbox Preview
 - Utilises `<iframe>` to render code in an isolated environment.
@@ -20,27 +20,27 @@ SnippetVault is a personal, interactive code library designed to store, manage, 
 - Supports real-time visual feedback for UI-based snippets.
 
 ### 3. Interactive Code Editing
-- Real-time synchronisation: Changes in the code editor are instantly reflected in the preview.
-- Dynamic adjustments: Fine-tune values like padding, margin, or colours before finalising the code.
+- Real-time synchronisation within the iframe preview.
+- **Colour Bar UI:** Dedicated UI controls to adjust hex/rgb values dynamically without manually typing code.
+- Instantly copies the exact manipulated code.
 
-### 4. Smart Copy
-- One-click "Copy to Clipboard" functionality for refined code.
-- Ensures the copied code includes all real-time modifications made in the sandbox.
+### 4. Authentication & Community Features
+- User authentication to manage public and private snippets.
+- Like system to elevate highly useful snippets in the sorting hierarchy.
 
 ## Tech Stack
-- **HTML5**: Semantic structure and layout.
-- **CSS3**: Responsive design and custom styling for the dashboard.
-- **Vanilla JavaScript**: DOM manipulation, data handling, and iframe communication.
-- **Vite**: Modern build tool for fast development and optimised deployment.
+- **Frontend:** React, Vite, Monaco Editor (or CodeMirror)
+- **Backend:** Node.js, Express.js
+- **Database:** PostgreSQL (via Supabase)
+- **Authentication:** Clerk
+- **Deployment:** Render (Web Service)
 
 ## MVP (Minimum Viable Product) Goals
-- [ ] Render snippet cards from a JSON-like data structure (`snippets.js`).
-- [ ] Display live preview of HTML/CSS within an iframe for UI snippets.
-- [ ] Implement a basic "Copy to Clipboard" button for instant use.
-- [ ] Functional sidebar for category filtering (HTML, CSS, JS, Setup).
+- [ ] Set up PostgreSQL database schema and REST API for CRUD operations.
+- [ ] Implement CSS Live Preview with code injection into an isolated iframe.
+- [ ] Build authentication and the "Like" system.
+- [ ] Develop interactive UI controls (e.g., Colour Bar) mapped to CSS properties.
 
 ## Future Enhancements
-- Persistent storage using LocalStorage to save temporary edits.
-- Advanced UI controls for CSS properties (sliders for numerical values, colour pickers).
 - Keyboard support: Increase/decrease numerical values using arrow keys within the editor.
 - Search functionality to find specific snippets instantly.

@@ -22,14 +22,15 @@ We use the **Conventional Commits** specification to keep the history readable a
 
 ### Scopes (Optional but Recommended)
 The scope should specify the place or feature affected by the change. For SnippetVault, use the following:
-- **ui**: General user interface changes (layout, navigation).
-- **sidebar**: Changes specific to the category menu.
-- **preview**: Logic or styles related to the live iframe sandbox.
-- **core**: Fundamental application logic and entry points (e.g., `main.js`).
-- **data**: Updates to the `snippets.js` file (adding/removing snippets).
-- **config**: Changes to `vite.config.js` or environment settings.
-- **css**: Global style changes in `style.css`.
-- **deps**: Managing dependencies (e.g., adding a new library via npm).
+- **client**: Frontend React application changes.
+- **server**: Backend Express application changes.
+- **shared**: Shared types and interfaces.
+- **ui**: Global UI components (buttons, modals).
+- **preview**: Logic or styles related to the iframe live preview.
+- **db**: Database schemas, migrations, or Supabase configurations.
+- **auth**: Clerk authentication logic.
+- **config**: Workspaces, Vite, or TypeScript configurations.
+- **deps**: Managing npm dependencies across workspaces.
 
 ### Subject Rules
 - **Imperative mood**: Start with a verb (e.g., "add", "fix", "update").
@@ -38,16 +39,31 @@ The scope should specify the place or feature affected by the change. For Snippe
 - **Limit length**: Try to keep it under 50 characters.
 
 ### Commit Examples
-- `feat(sidebar): add HTML category to the navigation`
-- `fix(preview): resolve sandbox rendering error on mobile`
-- `docs(readme): update deployment instructions`
-- `style(css): format global variables for consistency`
-- `chore(deps): install lucide-icons for the copy button`
-- `refactor(ui): improve responsiveness of the main grid`
+- `feat(client): implement live preview iframe synchronization`
+- `feat(server): setup snippet controller and express router`
+- `fix(auth): resolve clerk session redirect loop`
+- `docs(readme): update monorepo architecture instructions`
+- `style(ui): apply dark mode tokens to snippet cards`
+- `chore(deps): add typescript to shared package`
 
 ---
 
-## 2. Coding Standards
+## 2. Branch Naming Conventions
+
+All working branches should branch off from `main` and follow this format:
+`<type>/<short-description>`
+
+- `chore/setup-workspaces`
+- `feat/server-core`
+- `feat/snippet-api`
+- `feat/client-layout`
+- `feat/live-preview`
+- `fix/auth-redirect`
+- `refactor/shared-types`
+
+---
+
+## 3. Coding Standards
 
 ### General Principles
 - **Language**: Use **UK/NZ/AU English** for all naming and documentation (e.g., `initialise`, `organisation`, etc).
@@ -61,44 +77,37 @@ The scope should specify the place or feature affected by the change. For Snippe
   - Use relative units like `rem` and `em` for better accessibility.
   - Maintain a consistent naming convention (e.g., BEM (Block Element Modifier)).
 
-### JavaScript
-- Use `const` by default. Use `let` only when reassigning is necessary. Avoid `var`.
-- Prefer arrow functions for callbacks and simple logic.
-- Keep functions small and focused on a single responsibility.
-- Write comments in English only within code blocks.
+### TypeScript & React (Client)
+- Use `const` by default. Use `let` only when reassignment is strictly necessary. Avoid `var`.
+- Prefer functional components with React Hooks.
+- Keep components strictly separated: business logic inside `features/` and reusable UI elements inside `components/`.
+- Use shared types from `packages/shared` for all data fetching and state management.
+
+### Express & API (Server)
+- **Architecture**: Strictly adhere to the 3-layer architecture (`Router` -> `Controller` -> `Service` -> `Repository`).
+- **Error Handling**: Use the centralized error handling utility for consistent API responses.
 
 ---
 
-## 3. Directory Structure
+## 4. Directory Structure
 
 ```text
 snippet-vault/
-├── docs/               # Project documentation and guidelines
-│   ├── GUIDELINES.md   # Coding guidelines
-│   └── note.md         # Private Note
+├── docs/                 # Project documentation and guidelines
+│   ├── GUIDELINES.md     # Coding guidelines
+│   └── note.md           # Private Note
 │
-├── node_modules/       # Do not touch
+├── packages/             
+│   └── shared/           # Shared TypeScript interfaces
 │
-├── public/             # For global assets (icons, etc.)
+├── apps/                 
+│   ├── client/           # React + Vite frontend application
+│   └── server/           # Express backend application
 │
-├── src/                # Source
-│   ├── data/           # Data objects and snippet collections
-│   │   └── snippets.js # Snippet data
-│   ├── styles/         # CSS stylesheets
-│   │   └── main.css    # Moved from src/style.css
-│   └── main.js         # Main application logic
-│
-├── .gitignore          # Ignore files and folders
-│
-├── .prettierrc         # Prettier configuration
-│
-├── index.html          # Entry point
-│
-├── LICENSE             # Licensing information
-│
-├── package-lock.json   # Do not touch
-├── package.json        # Do not touch (Dependencies and scripts)
-│
-├── README.md           # Project description
-│
-└── vite.config.js      # Vite configuration
+├── .gitignore            # Root ignore file
+├── .prettierrc           # Global Prettier configuration
+├── LICENSE               # Licensing information
+├── package.json          # Root workspace configuration
+├── tsconfig.base.json    # Base TypeScript configuration
+└── README.md             # Project description
+```
