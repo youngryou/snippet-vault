@@ -1,11 +1,12 @@
 {
-  "name": "snippet-vault",
+  "name": "snippet-vault-root",
   "version": "1.0.0",
-  "description": "SnippetVault is a full-stack, interactive code library designed to store, manage, and test reusable code snippets. It provides a live sandbox environment with real-time CSS manipulation, categorised filtering, and a PostgreSQL database for persistent storage.",
-  "main": "vite.config.js",
-  "directories": {
-    "doc": "docs"
-  },
+  "private": true,
+  "description": "SnippetVault is a full-stack, interactive code library designed to store, manage, and test reusable code snippets.",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,10 +14,8 @@
     "type": "git",
     "url": "git+https://github.com/youngryou/snippet-vault.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "author": "Young Ryou",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/youngryou/snippet-vault/issues"
   },
