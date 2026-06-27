@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
-import app from './app';
-import { testDbConnection } from './config/database';
+import app from './app.js';
+import { testDbConnection } from './config/database.js';
 
 // Load environment variables before anything else
 dotenv.config();

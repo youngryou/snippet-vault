@@ -1,17 +1,14 @@
-import { Pool } from 'pg';
-import dotenv from 'dotenv';
+import knex from 'knex';
+import knexConfig from '../../knexfile.js';
 
-dotenv.config();
+const environment = process.env.NODE_ENV || 'development';
 
-export const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-});
+export const db = knex(knexConfig[environment as keyof typeof knexConfig]);
 
-export const testDbConnection = async () => {
+export const testDbConnection = async (): Promise<void> => {
   try {
-    const client = await pool.connect();
-    console.log('Successfully connected to the PostgreSQL database.');
-    client.release();
+    await db.raw('SELECT 1');
+    console.log('Successfully connected to the PostgreSQL database via Knex.');
   } catch (error) {
     console.error('Error connecting to the database:', error);
   }

@@ -1,7 +1,9 @@
 import express from 'express';
 import cors from 'cors';
-import { globalErrorHandler } from './utils/errorHandler';
-import { AppError } from './utils/appError';
+import { globalErrorHandler } from './utils/errorHandler.js';
+import { AppError } from './utils/appError.js';
+
+import snippetRouter from './routers/snippet.router.js';
 
 const app = express();
 
@@ -9,13 +11,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use('/api/v1/snippets', snippetRouter);
+
 // Health check endpoint
-app.get('/api/health', (req, res) => {
+app.get('/api/health', (_req, res) => {
   res.status(200).json({ message: 'Server is running smoothly.' });
 });
 
-// Handle 404 (Not Found) for all undefined routes
-app.all('*', (req, res, next) => {
+// Handle 404 (Not Found)
+app.use((req, _res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });
 
