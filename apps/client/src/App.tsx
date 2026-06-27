@@ -1,10 +1,17 @@
-// apps/client/src/App.tsx
-const App = () => {
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { MainLayout } from './components/layout/MainLayout';
+import { Home } from './pages/Home';
+
+function App() {
   return (
-    <div>
-      <h1>Snippet Vault</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Home />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
