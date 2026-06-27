@@ -75,7 +75,9 @@ All working branches should branch off from `main` and follow this format:
 - **CSS**: 
   - Define global design tokens (colours, spacing) in `:root`.
   - Use relative units like `rem` and `em` for better accessibility.
-  - Maintain a consistent naming convention (e.g., BEM (Block Element Modifier)).
+  - **CSS Modules**: Component-specific styles must be modularised using CSS Modules (`.module.css`) and co-located within the same component or feature folder. Use `camelCase` naming conventions for CSS Modules to ensure clean dot-notation access in JavaScript/TypeScript.
+  - **Global Styles**: Global utility styles and base layouts must reside within the `styles/` directory. Maintain a strict **BEM (Block Element Modifier)** naming convention for all global styles.
+  - **Style Architecture**: All global stylesheets must be gathered and exported through a central `index.css` file via `@import` statements. Pay close attention to the loading order of these imports to prevent specificity and cascade conflicts.
 
 ### TypeScript & React (Client)
 - Use `const` by default. Use `let` only when reassignment is strictly necessary. Avoid `var`.
