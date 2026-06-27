@@ -3,10 +3,11 @@
     "target": "ES2022",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "rootDir": "./src",
+    "rootDir": "./",
     "outDir": "./dist",
     "esModuleInterop": true,
     "strict": true,
+    "allowJs": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
 
